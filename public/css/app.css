@@ -3,9 +3,22 @@
     margin: 0;
     box-sizing: border-box;
 }
+/*utility*/
+ul{
+    list-style: none;
+}
+img{
+    width: 200px;
+}
 #navbar{
     background:#eeeeee;
 }
 .formlogin{
     width: 300px;
+}
+.profiling{
+    -webkit-column-count: 0; /* Chrome, Safari, Opera */
+    -moz-column-count: 0; /* Firefox */
+    column-count: 2;
+    gap: 3rem;
 }

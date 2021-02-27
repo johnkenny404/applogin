@@ -24,10 +24,11 @@
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
               </ul>
-              <form class="d-flex">
-                <button class="btn btn-info mr-2" type="submit">Login</button>
-                <button class="btn btn-primary" type="submit">Sign-up</button>
-              </form>
+              <ul class="navbar-nav">
+                <li class="nav-item mx-1">
+                    <a href="{{route('register')}}" class="btn btn-primary">Sign Up</a>
+                </li>
+                </ul>
             </div>
           </div>
         </nav>
@@ -38,18 +39,19 @@
     <section id="login">
       <div class="container">
         <div class="d-flex flex-column py-4 justify-content-center align-items-center">
-          <form class="formlogin mt-5">
+          <form class="formlogin mt-5"  method="POST" action="{{route('login')}}">
+          @csrf
             <h1 class="text-center">Welcome</h1>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" placeholder="Enter email" required>
+              <input type="email" name="email" class="form-control" placeholder="Enter email" required>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" placeholder="Enter password" required>
+              <input type="password" name="password" class="form-control" placeholder="Enter password" required>
             </div>
-            <button type="submit" class="btn btn-block btn-primary">Login</button>
-            <p class="mt-2 text-center">Don't have an account? <a href="register.html">Register</a></p>
+            <button type="submit" class="btn btn-block btn-primary">Sign In</button>
+            <p class="mt-2 text-center">Don't have an account? <a href="{{route('register')}}">Register</a></p>
           </form>
         </div>
       </div>
