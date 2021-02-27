@@ -25,8 +25,7 @@
                   </li>
                 </ul>
                 <form class="d-flex">
-                  <button class="btn btn-info mr-2" type="submit">Login</button>
-                  <button class="btn btn-primary" type="submit">Sign-up</button>
+                  <a href="{{route('login')}}" class="btn btn-info mr-2">Login</a>
                 </form>
               </div>
             </div>
@@ -39,30 +38,40 @@
       <section id="register">
           <div class="container">
             <div class="d-flex flex-column py-4 justify-content-center align-items-center">
-                <form action="">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+                <form method="POST" action="{{route('register')}}">
+                @csrf
                     <h1 class="heading">Create An Account</h1>
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" name="firstName" placeholder="Enter first name" class="form-control">
+                        <input type="text" name="firstname" placeholder="Enter first name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" name="lastName" placeholder="Enter last name" class="form-control">
+                        <input type="text" name="lastname" placeholder="Enter last name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter email" required>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" placeholder="Enter password" required>
+                        <input type="password" name="password" class="form-control" placeholder="Enter password" required>
                     </div>
                     <div class="form-check my-3">
                         <input type="checkbox" name="checkbox" id="checkbox" required>
                         <label for="checkbox">I agree to the <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a></label>
                     </div>
                     <button type="submit" class="btn btn-block btn-primary">Sign Up</button>
-                    <p class="mt-2 text-center">Already have an account? <a href="login.html">Login</a></p>
+                    <p class="mt-2 text-center">Already have an account? <a href="{{route('login')}}">Login</a></p>
                 </form>
                 </form>
             </div>

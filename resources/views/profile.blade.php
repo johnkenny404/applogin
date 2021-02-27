@@ -21,12 +21,12 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('form')}}">Enter Your Bio-Data</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                 </ul>
-                <form class="d-flex" method="POST" action="{{route('logout')}}">
-                @csrf
-                  <button class="btn btn-info" type="submit">SIGNOUt</button>
+                <form class="d-flex">
+                  <button class="btn btn-info mr-2" type="submit">Login</button>
+                  <button class="btn btn-primary" type="submit">Sign-up</button>
                 </form>
               </div>
             </div>
@@ -34,16 +34,33 @@
         </div>
       </div>
       <!--===================navbarend=========-->
-      <!--==========Message_showing_profile_created============-->
-      <div class="container mt-5">
-      @if (session('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
+      <!--==========profile_section=============-->
+      <div id="profile">
+          <div class="container">
+            <div class="d-flex flex-column py-4 ">
+                <h1>Personal profile</h1>
+                <div class="">
+                    <img src="./image/2593366.jpg" class="rounded" alt="...">
+                </div>  
+                <div class="row">
+                    <div class="col-md-5">
+                        <ul class="mt-5 profiling">
+                            <li>NAME</li>
+                            <li>AGE</li>
+                            <li>LOCATION</li>
+                            <li>EXPERIENCE</li>
+                            <li>DEGREE</li>
+                            <li>John Joe</li>
+                            <li>35</li>
+                            <li>Lagos, Nigeria</li>
+                            <li>2years</li>
+                            <li>Bsc Computer Science</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        @endif
+          </div>
       </div>
-     
-     
     
 </body>
 </html>
