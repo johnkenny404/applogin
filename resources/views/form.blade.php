@@ -93,7 +93,6 @@
                     <button type="submit" class="btn btn-block btn-primary">Submit</button>
                     
                 </form>
-                </form>
             </div>
           </div>
       </div>

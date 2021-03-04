@@ -10,6 +10,10 @@ class ApploginController extends Controller
     public function form(){
         return view('form');
     }
+    public function dashboard(){
+        $applogins = Applogin::all();
+        return view('dashboard')->with('applogins', $applogins);
+    }
 
     public function Createprofile(request $request){
         $request->validate([
@@ -23,7 +27,7 @@ class ApploginController extends Controller
 
         Applogin::create($request->All());
 
-        return redirect()->route('dashboard')->with('message' , 'Profile Created successfully');
+        return redirect()->route('profile')->with('message' , 'Profile Created successfully');
 
     }
 }

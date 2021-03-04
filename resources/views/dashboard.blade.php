@@ -42,8 +42,33 @@
             </div>
         @endif
       </div>
-     
-     
-    
+      <div id="profile">
+          <div class="container">
+          @foreach($applogins as $applogin)
+            <div class="d-flex flex-column py-4 ">
+                <h1>Personal profile</h1>
+                <div class="">
+                    <img src="./image/2593366.jpg" class="rounded" alt="...">
+                </div>  
+                <div class="row">
+                    <div class="col-md-5">
+                        <ul class="mt-5 profiling">
+                            <li>NAME</li>
+                            <li>AGE</li>
+                            <li>LOCATION</li>
+                            <li>EXPERIENCE</li>
+                            <li>DEGREE</li>
+                            <li>{{$applogin->fullname}}</li>
+                            <li>{{$applogin->age}}</li>
+                            <li>{{$applogin->location}}</li>
+                            <li>{{$applogin->experience}}</li>
+                            <li>{{$applogin->degree}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+          </div>
+      </div>
 </body>
 </html>
