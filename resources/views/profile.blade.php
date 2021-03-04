@@ -24,9 +24,9 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                 </ul>
-                <form class="d-flex">
-                  <button class="btn btn-info mr-2" type="submit">Login</button>
-                  <button class="btn btn-primary" type="submit">Sign-up</button>
+                <form class="d-flex" method="POST" action="{{route('logout')}}">
+                @csrf
+                  <button class="btn btn-info" type="submit">SIGNOUt</button>
                 </form>
               </div>
             </div>
@@ -37,6 +37,7 @@
       <!--==========profile_section=============-->
       <div id="profile">
           <div class="container">
+          @foreach($applogins as $applogin)
             <div class="d-flex flex-column py-4 ">
                 <h1>Personal profile</h1>
                 <div class="">
@@ -50,15 +51,16 @@
                             <li>LOCATION</li>
                             <li>EXPERIENCE</li>
                             <li>DEGREE</li>
-                            <li>John Joe</li>
-                            <li>35</li>
-                            <li>Lagos, Nigeria</li>
-                            <li>2years</li>
-                            <li>Bsc Computer Science</li>
+                            <li>{{$applogin->fullname}}</li>
+                            <li>{{$applogin->age}}</li>
+                            <li>{{$applogin->location}}</li>
+                            <li>{{$applogin->experience}}</li>
+                            <li>{{$applogin->degree}}</li>
                         </ul>
                     </div>
                 </div>
             </div>
+            @endforeach
           </div>
       </div>
     

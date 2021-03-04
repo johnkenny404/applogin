@@ -16,13 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('/profile', 'ApploginController@profile')->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard','ApploginController@dashboard' )->middleware(['auth'])->name('dashboard');
 
-Route::get('/form', 'ApploginController@form')->middleware('auth')->name('form');
+Route::get('/form', 'ApploginController@form')->middleware('auth')->middleware(['auth'])->name('form');
 
-Route::post('/create-profile', 'ApploginController@createprofile')->name('create.profile');
+Route::post('/create-profile', 'ApploginController@createprofile')->middleware(['auth'])->name('create.profile');
 
 require __DIR__.'/auth.php';

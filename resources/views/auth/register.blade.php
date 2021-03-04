@@ -21,7 +21,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                   </li>
                 </ul>
                 <form class="d-flex">
@@ -37,6 +37,7 @@
       <!--===================Register form section==============-->
       <section id="register">
           <div class="container">
+          <x-auth-validation-errors class="mb-4" :errors="$errors" />
             <div class="d-flex flex-column py-4 justify-content-center align-items-center">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -64,8 +65,13 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+                        <input type="password" name="password" class="form-control"  required autocomplete="new-password">
                     </div>
+                    <div class="form-group">
+                        <label for="password">confirm Password</label>
+                        <input type="password" name="confirmpassword" class="form-control"  required autocomplete="new-password">
+                    </div>
+                    
                     <div class="form-check my-3">
                         <input type="checkbox" name="checkbox" id="checkbox" required>
                         <label for="checkbox">I agree to the <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a></label>
