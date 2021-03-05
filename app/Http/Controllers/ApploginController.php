@@ -27,7 +27,7 @@ class ApploginController extends Controller
 
         Applogin::create($request->All());
 
-        return redirect()->route('profile')->with('message' , 'Profile Created successfully');
+        return redirect()->route('dashboard')->with('message' , 'Profile Created successfully');
 
     }
 }

@@ -38,7 +38,7 @@
       <div id="personalinfo">
           <div class="container">
             <div class="d-flex flex-column py-4 justify-content-center align-items-center">
-                <form action="{{route('create.profile')}}" method="POST" class="formlogin">
+                <form action="{{route('create.profile')}}" method="post" class="formlogin">
                 @csrf
                 @if ($errors->any())
                 <div class="alert alert-danger">
