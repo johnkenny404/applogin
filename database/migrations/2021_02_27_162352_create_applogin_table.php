@@ -15,13 +15,15 @@ class CreateApploginTable extends Migration
     {
         Schema::create('applogin', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('image_upload')->nullable();
-            $table->string('fullname');
             $table->string('age');
-            $table->string('location');
-            $table->string('experience');
+            $table->string('fullname');
             $table->string('degree');
+            $table->string('location');
+            $table->string('image');
+            $table->string('experience');
+            $table->unsignedBigInteger("user_id");
+            $table->foreign("user_id")->references("id")->on("users")->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

@@ -35,6 +35,37 @@
       </div>
       <!--===================navbarend=========-->
       <!--==========profile_section=============-->
-    
+      <div class="container mt-5">
+      @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+      </div>
+      <div id="profile">
+          <div class="container">
+              <div class="d-flex flex-column py-4 ">
+                <h1>Personal profile</h1>
+                <div class="">
+                    <img  src="{{asset('images/' .$applogin->image)}}" alt="image">
+                </div>  
+                <div class="row">
+                    <div class="col-md-5">
+                        <ul class="mt-5 profiling">
+                            <li>NAME</li>
+                            <li>AGE</li>
+                            <li>LOCATION</li>
+                            <li>EXPERIENCE</li>
+                            <li>DEGREE</li>
+                            <li>{{$applogin->fullname}}</li>
+                            <li>{{$applogin->age}}</li>
+                            <li>{{$applogin->location}}</li>
+                            <li>{{$applogin->experience}}</li>
+                            <li>{{$applogin->degree}}</li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+      </div>
 </body>
 </html>

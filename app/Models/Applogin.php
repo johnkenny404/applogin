@@ -9,6 +9,11 @@ class Applogin extends Model
 {
     protected $table = 'Applogin';
     protected $guarded = [];
-
+    
     use HasFactory;
+
+    public function user ()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
