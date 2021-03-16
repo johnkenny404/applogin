@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Applogin;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -39,15 +40,32 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        Auth::login($user = User::create([
+        $user = User::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]));
+        ]);
 
-        event(new Registered($user));
+        if( $user ) {
+            Auth::login($user, true);
+    
+            // Applogin::create([
+            //     'age' => $request->age,
+            //     'fullname' => $request->fullname,
+            //     'degree' => $request->degree,
+            //     'location' => $request->location,
+            //     'image' => $request->image,
+            //     'experience' => $request->experience,
+            //     'user_id' => $user->id,
+            // ]);
+            
+            event(new Registered($user));
+    
+            return redirect(RouteServiceProvider::HOME);
 
-        return redirect(RouteServiceProvider::HOME);
+        }
+        
+
     }
 }

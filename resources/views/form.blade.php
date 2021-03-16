@@ -38,7 +38,7 @@
       <div id="personalinfo">
           <div class="container">
             <div class="d-flex flex-column py-4 justify-content-center align-items-center">
-                <form action="{{route('create.profile')}}" method="post" class="formlogin">
+                <form action="{{route('create.profile')}}" method="post" class="formlogin" enctype="multipart/form-data">
                 @csrf
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -52,7 +52,7 @@
                     <h1 class="heading">Bio-Data</h1>
                     <div class="form-group">
                         <labeb>Upload Images</label>
-                        <input type="file" name="image_upload" class="mt-2 font-weight-bold" multiple>
+                        <input type="file" name="image" class="mt-2 font-weight-bold" multiple>
                     </div>
                     <div class="form-group">
                         <label for="fullName">full Name</label>
